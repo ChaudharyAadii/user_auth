@@ -29,13 +29,15 @@ export default function Otp() {
       const data = {
         otp, email: location.state
       }
+
+      const data2 = location.state;
       const response = await userVerify(data);
       // console.log(response);
       if(response.status === 200){
         localStorage.setItem("userdbtoken", response.data.userToken);
         toast.success(response.data.message); 
         setTimeout(() => {                         // if timeout is not set then the succes msg would not be shown before redirecting the page to the dashboard.
-          navigate("/dashboard")
+          navigate("/dashboard", {state: data2});
         },4000);
       } else {
         toast.error(response.response.data.error);
