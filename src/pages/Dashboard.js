@@ -23,7 +23,7 @@ export default function Dashboard() {
 
   const getUsers = async () => {
     try {
-      const response = await fetch(`http://localhost:8000?email=${email}`, {
+      const response = await fetch(`https://backend-2-rx7b.onrender.com?email=${email}`, {
         method: 'GET',
       });
       const data = await response.json();
